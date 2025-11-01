@@ -61,7 +61,6 @@ Como este é um projeto puramente frontend, não há necessidade de um backend c
     -   Com o projeto aberto no VSCode, clique com o botão direito no arquivo `index.html` na lista de arquivos.
     -   Selecione a opção `Open with Live Server` (ou `Abrir com Live Server`).
 
-    ![Live Server](https://i.imgur.com/7Z4QY8c.png)
 
 5.  **Pronto!** O Live Server iniciará um servidor local e abrirá o seu navegador padrão na página `index.html`. Agora você pode navegar e testar todas as funcionalidades do site.
 
