@@ -1,0 +1,79 @@
+/* ===== LOGIN PAGE ===== */
+.login-box {
+    max-width: 450px;
+    margin: 4rem auto;
+    padding: var(--spacing-xl);
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+.login-box h1 {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    color: var(--accent-color);
+    font-size: var(--font-size-h1);
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+    font-size: var(--font-size-h2);
+}
+
+/* ===== FORM CONTAINER ===== */
+.form-container {
+    display: none;
+}
+
+.form-container.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== TOGGLE FORM ===== */
+.toggle-form {
+    text-align: center;
+    margin-top: var(--spacing-md);
+    color: var(--text-secondary);
+    font-size: var(--font-size-small);
+}
+
+.toggle-form a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.toggle-form a:hover {
+    text-decoration: underline;
+}
+
+/* ===== BOTÕES DO FORMULÁRIO ===== */
+.form-container .btn {
+    width: 100%;
+    margin-top: var(--spacing-sm);
+    padding: var(--spacing-md);
+    font-size: var(--font-size-large);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .login-box {
+        margin: 2rem auto;
+        padding: var(--spacing-lg);
+    }
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/configuracoes.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <button id="btnVoltar" class="btn btn-secondary">← Voltar</button>
+            <h1>Configurações de Acessibilidade</h1>
+        </header>
+
+        <main class="config-content">
+            <!-- Tema -->
+            <section class="config-section">
+                <h2>Tema</h2>
+                <div class="config-options">
+                    <button class="config-btn" data-config="tema" data-value="claro">
+                        <span class="config-icon">☀️</span>
+                        <span>Claro</span>
+                    </button>
+                    <button class="config-btn" data-config="tema" data-value="escuro">
+                        <span class="config-icon">🌙</span>
+                        <span>Escuro</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Tamanho de Fonte -->
+            <section class="config-section">
+                <h2>Tamanho de Fonte</h2>
+                <div class="config-options">
+                    <button class="config-btn" data-config="fonte" data-value="pequena">
+                        <span class="config-text">A</span>
+                        <span>Pequena</span>
+                    </button>
+                    <button class="config-btn" data-config="fonte" data-value="media">
+                        <span class="config-text" style="font-size: 1.2em;">A</span>
+                        <span>Média</span>
+                    </button>
+                    <button class="config-btn" data-config="fonte" data-value="grande">
+                        <span class="config-text" style="font-size: 1.5em;">A</span>
+                        <span>Grande</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Filtros de Daltonismo -->
+            <section class="config-section">
+                <h2>Filtros de Daltonismo</h2>
+                <div class="config-options">
+                    <button class="config-btn" data-config="daltonismo" data-value="nenhum">
+                        <span class="config-icon">👁️</span>
+                        <span>Nenhum</span>
+                    </button>
+                    <button class="config-btn" data-config="daltonismo" data-value="protanopia">
+                        <span class="config-icon">🔴</span>
+                        <span>Protanopia</span>
+                    </button>
+                    <button class="config-btn" data-config="daltonismo" data-value="deuteranopia">
+                        <span class="config-icon">🟢</span>
+                        <span>Deuteranopia</span>
+                    </button>
+                    <button class="config-btn" data-config="daltonismo" data-value="tritanopia">
+                        <span class="config-icon">🔵</span>
+                        <span>Tritanopia</span>
+                    </button>
+                </div>
+                <p class="config-info">
+                    <small>
+                        <strong>Protanopia:</strong> Dificuldade em ver vermelho<br>
+                        <strong>Deuteranopia:</strong> Dificuldade em ver verde<br>
+                        <strong>Tritanopia:</strong> Dificuldade em ver azul
+                    </small>
+                </p>
+            </section>
+
+            <div class="config-actions">
+                <button id="btnResetarConfig" class="btn btn-secondary">Resetar Configurações</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/configuracoes.js"></script>
+</body>
+</html>

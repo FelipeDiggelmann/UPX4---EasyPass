@@ -1,0 +1,100 @@
+/* ===== CONFIGURAÇÕES PAGE ===== */
+.config-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+}
+
+/* ===== CONFIG SECTION ===== */
+.config-section {
+    background-color: var(--bg-secondary);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 4px 8px var(--shadow);
+    margin-bottom: var(--spacing-lg);
+}
+
+.config-section h2 {
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-primary);
+    font-size: var(--font-size-h2);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: var(--spacing-sm);
+}
+
+/* ===== CONFIG OPTIONS ===== */
+.config-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.config-btn {
+    padding: var(--spacing-lg);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: var(--font-size-base);
+}
+
+.config-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+.config-btn.active {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.config-icon {
+    font-size: 2rem;
+}
+
+.config-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* ===== CONFIG INFO ===== */
+.config-info {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--bg-primary);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--accent-color);
+}
+
+.config-info small {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* ===== CONFIG ACTIONS ===== */
+.config-actions {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+.config-actions .btn {
+    padding: var(--spacing-md) var(--spacing-xl);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .config-options {
+        grid-template-columns: 1fr;
+    }
+
+    .config-section {
+        padding: var(--spacing-lg);
+    }
+}

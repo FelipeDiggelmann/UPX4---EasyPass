@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atendimento - Chat</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <button id="btnVoltar" class="btn btn-secondary">← Voltar</button>
+            <h1>Atendimento</h1>
+        </header>
+
+        <main class="chat-content">
+            <div class="chat-box">
+                <div id="chatMessages" class="chat-messages">
+                    <!-- Mensagens serão carregadas aqui -->
+                </div>
+                
+                <div class="chat-input-container">
+                    <input type="text" id="chatInput" placeholder="Digite sua mensagem..." autocomplete="off">
+                    <button id="btnEnviar" class="btn btn-primary">Enviar</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/configuracoes.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>

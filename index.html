@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recarga de Cartão de Ônibus - Login</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1>Recarga de Cartão de Ônibus</h1>
+            
+            <!-- Formulário de Login -->
+            <div id="loginForm" class="form-container active">
+                <h2>Login</h2>
+                <form id="formLogin">
+                    <div class="form-group">
+                        <label for="loginCpf">CPF</label>
+                        <input type="text" id="loginCpf" name="cpf" placeholder="000.000.000-00" maxlength="14" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginSenha">Senha</label>
+                        <input type="password" id="loginSenha" name="senha" placeholder="Digite sua senha" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Entrar</button>
+                    <p class="toggle-form">
+                        Não tem conta? <a href="#" id="showCadastro">Cadastre-se</a>
+                    </p>
+                </form>
+            </div>
+
+            <!-- Formulário de Cadastro -->
+            <div id="cadastroForm" class="form-container">
+                <h2>Cadastro</h2>
+                <form id="formCadastro">
+                    <div class="form-group">
+                        <label for="cadastroNome">Nome Completo</label>
+                        <input type="text" id="cadastroNome" name="nome" placeholder="Digite seu nome completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cadastroCpf">CPF</label>
+                        <input type="text" id="cadastroCpf" name="cpf" placeholder="000.000.000-00" maxlength="14" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cadastroSenha">Senha</label>
+                        <input type="password" id="cadastroSenha" name="senha" placeholder="Digite sua senha" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cadastroConfirmaSenha">Confirmar Senha</label>
+                        <input type="password" id="cadastroConfirmaSenha" name="confirmaSenha" placeholder="Confirme sua senha" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                    <p class="toggle-form">
+                        Já tem conta? <a href="#" id="showLogin">Faça login</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

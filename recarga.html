@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recarga de Cartão</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/recarga.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <button id="btnVoltar" class="btn btn-secondary">← Voltar</button>
+            <h1>Recarga de Cartão <span id="tipoCartao"></span></h1>
+        </header>
+
+        <main class="recarga-content">
+            <!-- Etapa 1: Confirmação de CPF -->
+            <div id="etapa1" class="etapa active">
+                <h2>Confirme seus dados</h2>
+                <div class="info-box">
+                    <p><strong>Nome:</strong> <span id="confirmaName"></span></p>
+                    <p><strong>CPF:</strong> <span id="confirmaCpf"></span></p>
+                </div>
+                <div class="form-group">
+                    <label for="cpfConfirmacao">Digite seu CPF para confirmar</label>
+                    <input type="text" id="cpfConfirmacao" placeholder="000.000.000-00" maxlength="14">
+                </div>
+                <button id="btnConfirmarCpf" class="btn btn-primary">Confirmar</button>
+            </div>
+
+            <!-- Etapa 2: Seleção de Valor -->
+            <div id="etapa2" class="etapa">
+                <h2>Selecione o valor da recarga</h2>
+                <div class="valores-grid">
+                    <button class="valor-btn" data-valor="10">R$ 10,00</button>
+                    <button class="valor-btn" data-valor="20">R$ 20,00</button>
+                    <button class="valor-btn" data-valor="30">R$ 30,00</button>
+                    <button class="valor-btn" data-valor="50">R$ 50,00</button>
+                </div>
+                <div class="form-group">
+                    <label for="valorPersonalizado">Ou digite outro valor</label>
+                    <input type="number" id="valorPersonalizado" placeholder="Digite o valor" min="1" step="0.01">
+                    <small id="limiteInfo"></small>
+                </div>
+                <button id="btnConfirmarValor" class="btn btn-primary">Continuar</button>
+            </div>
+
+            <!-- Etapa 3: Método de Pagamento -->
+            <div id="etapa3" class="etapa">
+                <h2>Selecione o método de pagamento</h2>
+                <p class="valor-selecionado">Valor: R$ <span id="valorEscolhido">0,00</span></p>
+                
+                <div class="metodos-grid">
+                    <button class="metodo-btn" data-metodo="debito">
+                        <span class="metodo-icon">💳</span>
+                        <span>Débito</span>
+                    </button>
+                    <button class="metodo-btn" data-metodo="credito">
+                        <span class="metodo-icon">💳</span>
+                        <span>Crédito</span>
+                    </button>
+                    <button class="metodo-btn" data-metodo="pix">
+                        <span class="metodo-icon">📱</span>
+                        <span>PIX</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Etapa 4a: Formulário de Cartão -->
+            <div id="etapa4Cartao" class="etapa">
+                <h2>Dados do Cartão de <span id="tipoCartaoPagamento"></span></h2>
+                <form id="formCartao">
+                    <div class="form-group">
+                        <label for="numeroCartao">Número do Cartão</label>
+                        <input type="text" id="numeroCartao" placeholder="0000 0000 0000 0000" maxlength="19">
+                    </div>
+                    <div class="form-group">
+                        <label for="nomeCartao">Nome no Cartão</label>
+                        <input type="text" id="nomeCartao" placeholder="Nome como está no cartão">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="validadeCartao">Validade</label>
+                            <input type="text" id="validadeCartao" placeholder="MM/AA" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvvCartao">CVV</label>
+                            <input type="text" id="cvvCartao" placeholder="000" maxlength="3">
+                        </div>
+                    </div>
+                    <button type="button" id="btnSimularPagamentoCartao" class="btn btn-primary">Realizar Pagamento</button>
+                </form>
+            </div>
+
+            <!-- Etapa 4b: PIX -->
+            <div id="etapa4Pix" class="etapa">
+                <h2>Pagamento via PIX</h2>
+                <p class="valor-selecionado">Valor: R$ <span id="valorPix">0,00</span></p>
+                
+                <div class="pix-container">
+                    <div class="qrcode-container">
+                        <div id="qrcodeDiv"></div>
+                    </div>
+                    <div class="pix-info">
+                        <p><strong>Chave PIX (Copia e Cola):</strong></p>
+                        <div class="chave-pix-box">
+                            <input type="text" id="chavePix" readonly>
+                            <button id="btnCopiarChave" class="btn btn-secondary">Copiar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="btnSimularPagamentoPix" class="btn btn-primary">Simular Pagamento Realizado</button>
+            </div>
+
+            <!-- Modal de Confirmação -->
+            <div id="modalConfirmacao" class="modal">
+                <div class="modal-content">
+                    <h2>✅ Pagamento Concluído!</h2>
+                    <p>Sua recarga foi realizada com sucesso.</p>
+                    <p><strong>Valor:</strong> R$ <span id="valorFinal">0,00</span></p>
+                    <button id="btnFecharModal" class="btn btn-primary">OK</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/configuracoes.js"></script>
+    <script src="js/recarga.js"></script>
+</body>
+</html>

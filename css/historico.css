@@ -1,0 +1,130 @@
+/* ===== HISTÓRICO PAGE ===== */
+.historico-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+}
+
+/* ===== FILTROS ===== */
+.filtros {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 4px var(--shadow);
+    align-items: flex-end;
+}
+
+.filtros .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* ===== LISTA HISTÓRICO ===== */
+.lista-historico {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.historico-item {
+    background-color: var(--bg-secondary);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 4px var(--shadow);
+    border-left: 4px solid var(--accent-color);
+    transition: var(--transition);
+}
+
+.historico-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+.historico-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.historico-tipo {
+    font-weight: 600;
+    color: var(--accent-color);
+    font-size: var(--font-size-large);
+}
+
+.historico-data {
+    color: var(--text-secondary);
+    font-size: var(--font-size-small);
+}
+
+.historico-detalhes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.historico-detalhe {
+    color: var(--text-secondary);
+    font-size: var(--font-size-small);
+}
+
+.historico-detalhe strong {
+    color: var(--text-primary);
+}
+
+.historico-valor {
+    font-size: var(--font-size-large);
+    font-weight: 600;
+    color: var(--success-color);
+}
+
+/* ===== MENSAGEM VAZIO ===== */
+.mensagem-vazio {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background-color: var(--bg-secondary);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+}
+
+/* ===== BADGES ===== */
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-small);
+    font-weight: 600;
+}
+
+.badge-estudante {
+    background-color: #2196F3;
+    color: white;
+}
+
+.badge-social {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .filtros {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .historico-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-xs);
+    }
+
+    .historico-detalhes {
+        grid-template-columns: 1fr;
+    }
+}
