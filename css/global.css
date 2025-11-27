@@ -66,16 +66,19 @@ body.fonte-grande {
 }
 
 /* ===== FILTROS DE DALTONISMO ===== */
+/* Protanopia: Dificuldade em ver vermelho - simula a deficiência de cones vermelhos */
 body.daltonismo-protanopia {
-    filter: url('#protanopia-filter');
+    filter: saturate(0.5) hue-rotate(-30deg);
 }
 
+/* Deuteranopia: Dificuldade em ver verde - simula a deficiência de cones verdes */
 body.daltonismo-deuteranopia {
-    filter: url('#deuteranopia-filter');
+    filter: saturate(0.5) hue-rotate(30deg);
 }
 
+/* Tritanopia: Dificuldade em ver azul - simula a deficiência de cones azuis */
 body.daltonismo-tritanopia {
-    filter: url('#tritanopia-filter');
+    filter: saturate(0.5) hue-rotate(90deg);
 }
 
 /* ===== RESET E BASE ===== */
