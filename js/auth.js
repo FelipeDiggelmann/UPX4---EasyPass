@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Login bem-sucedido
         Storage.salvarUsuarioLogado(usuario);
+        Storage.inicializarSaldos(cpf); // Inicializar saldos se nao existirem
         exibirSucesso('Login realizado com sucesso!', loginForm);
         
         setTimeout(() => {

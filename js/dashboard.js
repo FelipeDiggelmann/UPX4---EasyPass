@@ -48,3 +48,32 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// ===== FUNÇÃO PARA ATUALIZAR SALDOS =====
+
+/**
+ * Atualiza a exibição dos saldos no dashboard
+ * @param {string} cpf - CPF do usuário
+ */
+function atualizarExibicaoSaldos(cpf) {
+    const saldoEstudante = document.getElementById('saldoEstudante');
+    const saldoSocial = document.getElementById('saldoSocial');
+    
+    const saldos = Storage.carregarSaldoUsuario(cpf);
+    
+    // Formatar valores como moeda brasileira
+    saldoEstudante.textContent = formatarMoeda(saldos.estudante);
+    saldoSocial.textContent = formatarMoeda(saldos.social);
+}
+
+/**
+ * Formata um número como moeda brasileira
+ * @param {number} valor - Valor a ser formatado
+ * @returns {string} Valor formatado
+ */
+function formatarMoeda(valor) {
+    return new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    }).format(valor);
+}

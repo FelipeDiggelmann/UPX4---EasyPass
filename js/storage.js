@@ -204,5 +204,61 @@ const Storage = {
             daltonismo: 'nenhum'
         };
         return this.salvar('configuracoes', configPadrao);
+    },
+
+    // ===== SALDO DOS CARTÕES =====
+
+    /**
+     * Inicializa os saldos dos cartões para um novo usuário
+     * @param {string} cpf - CPF do usuário
+     */
+    inicializarSaldos(cpf) {
+        const cpfLimpo = limparCPF(cpf);
+        const saldos = this.carregarSaldos();
+        
+        if (!saldos[cpfLimpo]) {
+            saldos[cpfLimpo] = {
+                estudante: 0,
+                social: 0
+            };
+            this.salvar('saldos', saldos);
+        }
+    },
+
+    /**
+     * Carrega todos os saldos
+     * @returns {Object} Objeto com saldos de todos os usuários
+     */
+    carregarSaldos() {
+        return this.carregar('saldos') || {};
+    },
+
+    /**
+     * Carrega o saldo de um usuário
+     * @param {string} cpf - CPF do usuário
+     * @returns {Object} Objeto com saldos {estudante, social}
+     */
+    carregarSaldoUsuario(cpf) {
+        const cpfLimpo = limparCPF(cpf);
+        const saldos = this.carregarSaldos();
+        return saldos[cpfLimpo] || { estudante: 0, social: 0 };
+    },
+
+    /**
+     * Atualiza o saldo de um cartão
+     * @param {string} cpf - CPF do usuário
+     * @param {string} tipo - Tipo de cartão ('estudante' ou 'social')
+     * @param {number} valor - Valor a ser adicionado
+     */
+    atualizarSaldo(cpf, tipo, valor) {
+        const cpfLimpo = limparCPF(cpf);
+        const saldos = this.carregarSaldos();
+        
+        if (!saldos[cpfLimpo]) {
+            saldos[cpfLimpo] = { estudante: 0, social: 0 };
+        }
+        
+        saldos[cpfLimpo][tipo] = (saldos[cpfLimpo][tipo] || 0) + valor;
+        return this.salvar('saldos', saldos);
     }
 };
