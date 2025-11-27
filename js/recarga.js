@@ -221,6 +221,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         Storage.salvarRecarga(recarga);
 
+         // Atualizar saldo do cartao
+        const tipoSaldo = tipoCartao === 'estudante' ? 'estudante' : 'social';
+        Storage.atualizarSaldo(usuario.cpf, tipoSaldo, valorSelecionado);
+
         // Exibir modal de confirmação
         document.getElementById('valorFinal').textContent = formatarValor(valorSelecionado);
         modal.classList.add('active');
