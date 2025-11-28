@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const nomeUsuario = document.getElementById('nomeUsuario');
     nomeUsuario.textContent = usuario.nome;
 
+    // Carregar e exibir saldos
+    atualizarExibicaoSaldos(usuario.cpf);
+
     // Botão de logout
     const btnLogout = document.getElementById('btnLogout');
     btnLogout.addEventListener('click', function() {
